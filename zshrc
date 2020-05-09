@@ -76,6 +76,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+ZSH_DISABLE_COMPFIX="true"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -116,3 +118,13 @@ plugins=(
   ruby
 )
 
+## Python
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+## Poetry
+
+export PATH=$PATH:$HOME/.poetry/bin
+fpath+=~/.zfunc
